@@ -1,0 +1,13 @@
+<div class="show-wrapper">
+  <h1><%= @item.title %></h1>
+
+  <% @item.photos.each_with_index do |photo, index| %>
+    <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
+  <!--   Css style for showing image here -->
+      <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
+      <% end %>
+  <% end %>
+  <p><%= @item.description %></p>
+  <%= link_to @item.user.email, profile_path(@item.user)  %>
+</div>
+

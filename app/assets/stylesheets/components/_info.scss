@@ -1,0 +1,14 @@
+.info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  background-color: rgba(140, 56, 56, 0.72);
+}
+
+.info-items {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex: 0 1 250px;
+}

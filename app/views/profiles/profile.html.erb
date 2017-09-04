@@ -1,0 +1,44 @@
+
+<div class="profile-banner">
+  <div class="banner-wrapper">
+    <div class="banner-content">
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <% avatar_url = @user.facebook_picture_url || "http://placehold.it/50x50" %>
+      <%= image_tag avatar_url, class: "avatar" %>
+    </div>
+  </div>
+</div>
+<div class="info-bar">
+  <div class="info-items">
+    <ul>Info</ul>
+    <ul>Rating</ul>
+  </div>
+</div>
+
+
+
+<div class="profiles-wrapper">
+  <ul class="flex-container">
+    <% @items.reverse_each  do |item| %>
+      <% item.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+        <li class="flex-item">
+          <%= link_to item_path(item) do %>
+          <div class="image-box">
+            <!--   Css style for showing image here -->
+            <%= cl_image_tag photo.path, crop: :fill %>
+            </div>
+          <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
+
+

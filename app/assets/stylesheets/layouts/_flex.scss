@@ -1,0 +1,86 @@
+
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-flow: row wrap;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 13px;
+
+  background-color: rgb(222, 220, 222);
+  display: flex;
+  margin: 2em 0;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px #bfbfbf;
+  //justify-content: space-around;
+}
+
+.flex-item {
+  background: white;
+  width: 300px;
+  height: 300px;
+  margin-top: 10px;
+  //align-content: flex-start;
+  justify-content: center;
+  margin: 10px auto;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  box-shadow: 0px 0px 6px grey;
+
+
+ img {
+    max-width: 100%;
+    max-height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ }}
+
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .flex-item {
+    /* On small screens, we are no longer using row direction but column */
+    width: 165px;
+    height: 165px;
+  }
+}
+
+// Margin to see the content
+#current-flex {
+  margin-bottom: 60px;
+}
+
+// Content under current profiles grid
+.edit {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: -125px;
+    font-size: 13px;
+    text-transform: uppercase;
+    -ms-flex-pack: center;
+    box-shadow: 0px 0px 8px #737373;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+// Placeholder to set pictures in flexbox in the middle
+.image-box {
+  display: flex;
+  height: 300px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+*{
+  color:white;
+}
+
+.home-wrapper {
+  text-align: center;
+  margin: 2em 0;
+   h4 {
+    color: white;
+   }
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  margin: 2em 0;
+  box-shadow: 0px 0px 8px #484747;
+  border-radius: 3px;
+}
+
+#m {
+  background-image: url("ich.jpg");
+}
+
+#v {
+  background-image: url("Vani.jpg");
+}
+

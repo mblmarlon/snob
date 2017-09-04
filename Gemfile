@@ -25,3 +25,15 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+# Image uploade
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+# Swipebox
+gem 'swipebox'
+
+# Facebook autentication
+gem 'omniauth-facebook'
