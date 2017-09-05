@@ -24,6 +24,8 @@
 
 .flex-item {
   background: white;
+  display: flex;
+  align-items: center;
   width: 300px;
   height: 300px;
   margin-top: 10px;
@@ -44,6 +46,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    max-height: 300px;
  }}
 
 
@@ -53,12 +56,16 @@
     /* On small screens, we are no longer using row direction but column */
     width: 165px;
     height: 165px;
-  }
+  img {
+    max-height: 165px;
+    max-width: 165px;
+ }}
 }
 
 // Margin to see the content
 #current-flex {
   margin-bottom: 60px;
+  flex-direction: column;
 }
 
 // Content under current profiles grid
@@ -67,6 +74,7 @@
     display: -ms-flexbox;
     display: flex;
     top: -125px;
+    width: 100%;
     font-size: 13px;
     text-transform: uppercase;
     -ms-flex-pack: center;
@@ -79,8 +87,17 @@
 // Placeholder to set pictures in flexbox in the middle
 .image-box {
   display: flex;
-  height: 300px;
+  height: 360px;
   width: 300px;
   justify-content: center;
   align-items: center;
 }
+
+
+@media all and (max-width: 500px) {
+ .image-box {
+  height: 225px;
+  width: 200px;
+}
+}
+
