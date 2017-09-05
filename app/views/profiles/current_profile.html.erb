@@ -34,7 +34,7 @@
                   <%= cl_image_tag photo.path, crop: :fill %>
                 </div>
                 <div class="edit">
-                  <%= link_to "delete", item_path(item), method: :delete %>
+                  <%= link_to "delete", item_path(item), method: :delete, class: "edit" %>
                 </div>
                </li>
             <% end %>

@@ -24,10 +24,9 @@
       <% if index == 0 %>
         <li class="flex-item">
           <%= link_to item_path(item) do %>
-          <div class="image-box">
             <!--   Css style for showing image here -->
             <%= cl_image_tag photo.path, crop: :fill %>
-            </div>
+
           <% end %>
           <% end %>
         </li>
