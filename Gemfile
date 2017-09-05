@@ -37,3 +37,7 @@ gem 'swipebox'
 
 # Facebook autentication
 gem 'omniauth-facebook'
+
+# Admin
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
