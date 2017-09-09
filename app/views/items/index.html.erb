@@ -1,54 +1,75 @@
 <div class="index-wrapper">
-<h2>Buy</h2>
-
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
- <%= link_to new_item_path do %>
-    <div id="add-card">
-    <div class="price">
-        <h5>Add your Item</h5>
+  <h2>Buy</h2>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <%= link_to new_item_path do %>
+      <div id="add-card">
+        <div class="price">
+          <h5>Add your Item</h5>
+        </div>
       </div>
-    </div>
-
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 
   <% if @items.any? %>
-
-    <% @items.reverse_each do |item| %>
-
+    <% @paid_item.each do |item| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-
+        <%= link_to item_path(item) do %>
+          <div class="card" id="premium">
+            <div class="image-place">
+              <div class="default-fit">
+                <% if item.photos? %>
+                  <% item.photos.each_with_index do |photo,index| %>
+                    <%= cl_image_tag photo.path, crop: :fill, class: "image-fit"  if index == 0%>
+                  <% end %>
+                <% else %>
+                   <%= image_tag 'no-photo.png', class: "default-fit" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="price">
+              <h5><%= item.price%>€</h5>
+            </div>
+            <div class="post-content">
+             <h3 class="title"><%= item.title %></h3>
+              <%= item.created_at %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% @items.each do |item| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <%= link_to item_path(item) do %>
           <div class="card">
             <div class="image-place">
-            <!-- Thumbnail-->
-            <div class="image-fit">
-              <% if item.photos? %>
-                <% item.photos.each_with_index do |photo,index| %>
-                  <%= cl_image_tag photo.path, crop: :fill, class: "image-fit"  if index == 0%>
+              <div class="default-fit">
+                <% if item.photos? %>
+                  <% item.photos.each_with_index do |photo,index| %>
+                    <%= cl_image_tag photo.path, crop: :fill, class: "image-fit"  if index == 0%>
+                  <% end %>
+                <% else %>
+                   <%= image_tag 'no-photo.png', class: "default-fit" %>
                 <% end %>
-              <% else %>
-                 <%= image_tag 'Vani.jpg', class: "image-fit" %>
-              <% end %>
-
-            </div>
+              </div>
             </div>
             <div class="price">
               <h5><%= item.price%>€</h5>
             </div>
             <!-- Post Content-->
             <div class="post-content">
-
-            <h3 class="title"><%= item.title %></h3>
+              <h3 class="title"><%= item.title %></h3>
+              <p><%= item.created_at %></p>
             </div>
           </div>
         <% end %>
-
       </div>
-
     <% end %>
-
   <% else %>
     <p>Sorry, we couldn't find any item what meets with your criterias.</p>
   <% end %>
+</div>
+
+
+
+

@@ -1,5 +1,17 @@
 <div class="show-wrapper">
-  <h1><%= @item.title %></h1>
+  <h1>
+    <%= @item.title %>
+  </h1>
+
+  <p>Posted by</p>
+  <%= link_to profile_path(@item.user) do %>
+    <% if @item.user.facebook_picture_url %>
+      <div class="avatar-div" style="background-image: url(<%= image_path @item.user.facebook_picture_url.gsub("square", "large")%>)"></div>
+    <% else %>
+      <%= @item.user.email %>
+    <% end %>
+  <% end %>
+
 
   <% @item.photos.each_with_index do |photo, index| %>
     <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
@@ -8,6 +20,5 @@
       <% end %>
   <% end %>
   <p><%= @item.description %></p>
-  <%= link_to @item.user.email, profile_path(@item.user)  %>
 </div>
 
