@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Attachinary::Engine => "/attachinary"
   resources :items
-  post "paiditems", to: "items#create_paid_item", as: 'paiditem'
+  post "paiditem", to: "items#create_paid_item", as: 'paiditem'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
