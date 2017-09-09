@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @items = Item.all
+    @paid_item = Item.where(paid: true).order(created_at: :desc)
+    @items = Item.where(paid: false).order(created_at: :desc)
   end
 
   def show
@@ -12,8 +13,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    @item.save
-    redirect_to
+    if @item.save
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   def new
@@ -33,6 +37,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  def create_paid_item
+    @item = Item.new(item_params)
+    @item.user = current_user
+    @item.paid = true
+    if @item.save
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   private
