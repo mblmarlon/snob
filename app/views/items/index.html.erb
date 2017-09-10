@@ -32,7 +32,8 @@
             </div>
             <div class="post-content">
              <h3 class="title"><%= item.title %></h3>
-              <%= item.created_at %>
+              <p><%= item.created_at.strftime("%R ") %>
+              <%= item.created_at.strftime(" %b.%d") %></p>
             </div>
           </div>
         <% end %>
@@ -59,7 +60,8 @@
             <!-- Post Content-->
             <div class="post-content">
               <h3 class="title"><%= item.title %></h3>
-              <p><%= item.created_at %></p>
+              <p><%= item.created_at.strftime("%R ") %>
+              <%= item.created_at.strftime(" %b.%d") %></p>
             </div>
           </div>
         <% end %>

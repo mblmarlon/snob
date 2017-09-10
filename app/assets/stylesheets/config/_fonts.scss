@@ -1,6 +1,7 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave');
 // Define fonts for body and headers
 $body-font: "Roboto", "Helvetica", "sans-serif";
 $headers-font: "Raleway", "Helvetica", "sans-serif";
@@ -24,5 +25,8 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
     color: black;
 }
 
+h1 {
+  font-family: 'Sedgwick Ave', cursive !important;
+}
 
 

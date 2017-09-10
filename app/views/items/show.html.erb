@@ -1,24 +1,49 @@
-<div class="show-wrapper">
+<div class="wrapper">
   <h1>
     <%= @item.title %>
   </h1>
 
-  <p>Posted by</p>
+<div class="profile-link">
+<p>Posted by</p>
   <%= link_to profile_path(@item.user) do %>
+  <!-- avatar -->
     <% if @item.user.facebook_picture_url %>
-      <div class="avatar-div" style="background-image: url(<%= image_path @item.user.facebook_picture_url.gsub("square", "large")%>)"></div>
+      <div class="avatar-div" style="background-image: url(<%= image_path @item.user.facebook_picture_url.gsub("square", "large")%>)">
+      </div>
     <% else %>
       <%= @item.user.email %>
     <% end %>
+    <p>See Profile</p>
   <% end %>
+  </div>
+
+</div>
+
+<div class="show-wrapper">
 
 
+
+
+
+
+
+  <div class="showpage-image">
+    <p style="text-align:center;">Click The Image</p>
   <% @item.photos.each_with_index do |photo, index| %>
     <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
   <!--   Css style for showing image here -->
       <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
       <% end %>
   <% end %>
+  </div>
+
+<div class="description">
+<h3><%= @item.title %></h3>
   <p><%= @item.description %></p>
+  </div>
+
+
+
+
 </div>
 

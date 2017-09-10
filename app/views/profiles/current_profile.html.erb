@@ -47,7 +47,7 @@
               <%= image_tag 'no-photo.png', class: "default-fit" %>
             </div>
             <div class="edit">
-                <%= link_to "delete", item_path(item), method: :delete %>
+                <%= link_to "delete", item_path(item), method: :delete, class: "edit" %>
             </div>
          </li>
         <% end %>
