@@ -17,15 +17,19 @@
 </div>
 
 <div class="show-wrapper">
-  <div class="showpage-image">
-    <p style="text-align:center;">Click The Image</p>
-    <% @item.photos.each_with_index do |photo, index| %>
-      <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
-    <!--   Css style for showing image here -->
-        <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
+  <% if @item.photos? %>
+    <div class="showpage-image">
+      <p style="text-align:center;">Click The Image</p>
+      <% @item.photos.each_with_index do |photo, index| %>
+        <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
+      <!--   Css style for showing image here -->
+          <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+  <h2>NO IMAGE</h2>
+  <% end %>
   <div class="description">
     <div class="one-line">
       <%= link_to profile_path(@item.user) do %>
