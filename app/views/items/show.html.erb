@@ -42,3 +42,6 @@
   </div>
 </div>
 
+
+<%= simple_form_for @item do |f| %>
+         <%= f.button :submit, "Sell this as a premium item", class: "btn btn-danger", style: "width: 100%; margin-top: 20px;", formaction: favorite_path %><% end %>

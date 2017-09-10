@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "profile/:id", to: "profiles#profile", as: 'profile'
   get "your_profile/:id", to: "profiles#current_profile", as: 'your_profile'
+
+
+  resources :users
+  get 'favorites',  to: 'favorites#index'
+  post "favorite", to: "favorites#create", as: 'favorite'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
