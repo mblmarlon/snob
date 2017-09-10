@@ -2,48 +2,39 @@
   <h1>
     <%= @item.title %>
   </h1>
-
-<div class="profile-link">
-<p>Posted by</p>
-  <%= link_to profile_path(@item.user) do %>
-  <!-- avatar -->
-    <% if @item.user.facebook_picture_url %>
-      <div class="avatar-div" style="background-image: url(<%= image_path @item.user.facebook_picture_url.gsub("square", "large")%>)">
-      </div>
-    <% else %>
-      <%= @item.user.email %>
+  <div class="profile-link">
+    <p>Posted by</p>
+    <%= link_to profile_path(@item.user) do %>
+    <!-- avatar -->
+      <% if @item.user.facebook_picture_url %>
+        <div class="avatar-div" style="background-image: url(<%= image_path @item.user.facebook_picture_url.gsub("square", "large")%>)">
+        </div>
+      <% else %>
+        <%= @item.user.first_name %> <%= @item.user.last_name.first %>.
+      <% end %>
+      <p>See Profile</p>
     <% end %>
-    <p>See Profile</p>
-  <% end %>
-  </div>
-
 </div>
 
 <div class="show-wrapper">
-
-
-
-
-
-
-
   <div class="showpage-image">
     <p style="text-align:center;">Click The Image</p>
-  <% @item.photos.each_with_index do |photo, index| %>
-    <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
-  <!--   Css style for showing image here -->
-      <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
+    <% @item.photos.each_with_index do |photo, index| %>
+      <%= link_to cl_image_path(photo.path, crop: :fill), class: "swipebox" do %>
+    <!--   Css style for showing image here -->
+        <%= cl_image_tag photo.path, crop: :fill, class: "show-image" if index == 0 %>
       <% end %>
-  <% end %>
+    <% end %>
   </div>
-
-<div class="description">
-<h3><%= @item.title %></h3>
-  <p><%= @item.description %></p>
+  <div class="description">
+    <div class="one-line">
+      <%= link_to profile_path(@item.user) do %>
+        <%= @item.user.first_name %> <%= @item.user.last_name.first %>.
+      <% end %>
+      <h3><%= @item.title %></h3>
+      <p><%= @item.created_at.strftime("%R ") %><%= @item.created_at.strftime(" %b.%d") %></p>
+    </div>
+    <p><%= @item.description %></p>
   </div>
-
-
-
-
 </div>
 

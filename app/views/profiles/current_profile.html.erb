@@ -4,7 +4,7 @@
 <div class="profile-banner">
   <div class="banner-wrapper">
     <div class="banner-content">
-      <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <h3><%= current_user.first_name %> <%= current_user.last_name.first %>.</h3>
       <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/50x50" %>
       <%= image_tag avatar_url, class: "avatar" %>
       <p>Thank you for <%= current_user.sign_in_count %> Log-ins</p>
