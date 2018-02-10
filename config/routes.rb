@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :users
-  get 'favorites',  to: 'favorites#index'
-  post "favorite", to: "favorites#create", as: 'favorite'
+  resources :favorites, only: [:index, :create, :destroy ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
